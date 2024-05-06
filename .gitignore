@@ -1,0 +1,4 @@
+volumes
+kalivenv
+/kali/kali/__pycache__
+/kali/db.sqlite3

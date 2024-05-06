@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/main/main.css">
+    {% block head %}{% endblock %}
+    <title>Explore</title>
+</head>
+<body>
+    <menu>
+        <div class="top-bar">
+            <div id="logo">
+
+            </div>
+            <div id="search-bar">
+                <input type="text" id="search-input">
+            </div>
+            <div id="menu-bar">
+                <div class="menu-list">
+                    <a href="/">Explore</a>
+                    <a href="/commission">Commission</a>
+                    <a href="/orders">Orders</a>
+                </div>
+                <a id="user-avatar" href="/profile">
+                    <img src="/static/main/img/default_avatar.jpg" alt="user avatar">
+                </a>
+                <div class="menu-btn">
+                    <div class="menu-btn-bar"></div>
+                    <div class="menu-btn-bar"></div>
+                    <div class="menu-btn-bar"></div>
+                </div>
+            </div>
+        </div>
+    </menu>
+    {% block content %}{% endblock %}
+</body>
+</html>
