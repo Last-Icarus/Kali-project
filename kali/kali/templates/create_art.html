@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<form method="post" enctype="multipart/form-data" id="create_art_form">
+    <div class="create_page_container">
+        <div class="creation_menu">
+            <input type="text" placeholder="Название" name = 'art_name'>
+            <input type="checkbox" id="status_open" name="status_open">
+            <label for="status_open">Статус</label>
+            <span>Жанр</span>
+            <input type="text" name="genre">
+            <span>Категория</span>
+            <input type="text" name="category">
+        </div>
+        <div class="creation_content">
+            <a href="/studio">Назад</a>
+            {% csrf_token %} 
+            <h1>Изображения</h1>
+            <span id="add_img_btn">
+                Добавить
+            </span>
+            <div class="images_list">
+                {{form.as_p}}
+            </div>
+            <h1>Описание</h1>
+            <textarea name="description"></textarea>
+            <span>Теги (через запятую)</span>
+            <input type="text" name="tags">
+            <button type="submit">Создать</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

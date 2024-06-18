@@ -4,14 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/static/main/main.css">
+    <script type="text/javascript" src="/static/main/jquery.js"></script>
+    <script type="text/javascript" src="/static/main/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/main/main.js"></script>
+    {% load static %}
     {% block head %}{% endblock %}
     <title>Explore</title>
 </head>
 <body>
+    <div id="dimmer"></div>
     <menu>
         <div class="top-bar">
             <div id="logo">
-
+                <a href="/">
+                    <img src="/static/main/img/logo.svg" alt="user avatar">
+                </a>
             </div>
             <div id="search-bar">
                 <input type="text" id="search-input">
@@ -19,10 +26,11 @@
             <div id="menu-bar">
                 <div class="menu-list">
                     <a href="/">Explore</a>
-                    <a href="/commission">Commission</a>
+                    <a href="/commissions">Commission</a>
                     <a href="/orders">Orders</a>
+                    <a href="/studio">Studio</a>
                 </div>
-                <a id="user-avatar" href="/profile">
+                <a id="user-avatar" href="/profile/{{request.user.id}}">
                     <img src="/static/main/img/default_avatar.jpg" alt="user avatar">
                 </a>
                 <div class="menu-btn">
@@ -33,6 +41,8 @@
             </div>
         </div>
     </menu>
-    {% block content %}{% endblock %}
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

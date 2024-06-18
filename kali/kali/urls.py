@@ -22,6 +22,10 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
-    re_path(r'^api/pages/$', views.page_list),
+    path('commissions/', views.commissions, name="commissions"),
+    path('profile/<int:user_id>', views.profile, name="profile"),
+    path('studio/', views.studio, name="studio"),
+    path('create-art/', views.create_art, name="create_art"),
+    path('create-commission/', views.create_commission, name=""),
     path('', views.home, name='home')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -3,6 +3,8 @@
     /* --main-color: #E0E0E0; */
     --main-dark: #8e8e8e;
     --main-dark-hover: #484848;
+    --grey: #747474;
+    --orange: #FF7A00;
 }
 
 body {
@@ -27,9 +29,15 @@ menu > div {
 }
 
 #logo {
-    /* background-color: white; */
-    min-width: 330px;
-    /* border-radius: 0 0 45px 0; */
+    background-color: white;
+    min-width: 100px;
+    border-radius: 0 0 45px 0;
+    display: flex;
+}
+
+#logo img {
+    height: 40px;
+    margin-left: 20px;
 }
 
 #search-bar {
@@ -56,7 +64,7 @@ menu > div {
 
 #menu-bar {
     background-color: white;
-    min-width: 570px;
+    min-width: 640px;
     border-radius: 0 0 0 45px;
     display: flex;
 }
@@ -104,10 +112,275 @@ menu > div {
     background-color: var(--main-dark-hover);
 }
 
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
 .menu-btn-bar {
     background-color: var(--main-dark);
     border-radius: 6px;
     width: 100%;
     height: 2px;
     margin: 4px;
+}
+
+sidemenu {
+    width: 330px;
+}
+
+.section {
+    margin-left: 20px;
+}
+
+.section p {
+    font-size: 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 40px;
+}
+
+.section span {
+    display: block;
+}
+
+.art-list,
+.profile_arts {
+    width: 100%;
+    margin: 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px
+}
+
+.art {
+    height: 300px;
+    width: 300px;
+    margin: 10px;
+}
+
+.art_image_container {
+    height: 260px;
+}
+
+.art_image {
+    width: 300px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+}
+
+.art_info {
+    display: flex;
+    background-color: white;
+    border-radius: 0 0 6px 6px;
+}
+
+.author_avatar img {
+    border-radius: 50%;
+    width: 42px;
+    margin: 5px 0 3px 10px;
+}
+
+.art_name_block {
+    margin: auto 0 auto 10px;
+}
+
+.author_name a {
+    text-decoration: none;
+    color: var(--main-dark)
+}
+
+.author_name a:hover {
+    color: var(--main-dark-hover);
+}
+
+.cost {
+    margin: auto 10px auto auto;
+}
+
+
+#profile_description {
+    width: 330px;
+    overflow-wrap: break-word;
+    height: max-content;
+    background-color: white;
+    border-radius: 6px;
+    margin: 20px 0 20px 20px;
+    padding-bottom: 10px;
+}
+
+#profile_description img {
+    height: 80px;
+    width: 80px;
+    transform: translate(-10px, -10px);
+    top: -20px;
+}
+
+.user_block p {
+    color: var(--main-dark-hover);
+    margin: 0 20px 20px 20px;
+    font-size: 20px;
+}
+
+.description_text {
+    margin: 20px;
+}
+
+.desc_title {
+    margin: 0 20px;
+    color: var(--main-dark);
+}
+
+.profile_title {
+    font-size: 32px;
+    color: var(--main-dark);
+    display: block;
+    margin: 20px 50px;
+}
+
+.settings_btn {
+    background-color: white;
+    border-radius: 6px;
+    text-align: center;
+    padding: 10px;
+    width: 310px;
+    margin: 20px;
+}
+
+.settings_btn a {
+    font-size: 24px;
+    text-decoration: none;
+    color: var(--main-dark);
+    width: 100%;
+}
+
+.settings_btn a:hover {
+    color: var(--main-dark-hover);
+}
+
+#dimmer {
+    display: none;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.7)
+    );
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+}
+
+#profile_settings {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    border-radius: 6px;
+    z-index: 110;
+}
+
+#profile_header {
+    width: 100%;
+}
+
+#profile_header img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.studio_menu {
+    background-color: white;
+    width: 240px;
+    border-radius: 0 6px 6px 0;
+    padding: 20px;
+}
+
+.studio_menu input {
+    display: none;
+}
+
+.studio_menu label {
+    color: var(--grey);
+    display: block;
+    font-size: 28px;
+    padding: 10px 0;
+}
+
+.studio_menu label:hover {
+    color: var(--main-dark-hover);
+    display: block;
+}
+
+.studio_content > div {
+    display: none;
+    width: 100%;
+    height: 800px;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.studio_container {
+    display: flex;
+    width: 100%;
+}
+
+.studio_content {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.studio_content h1 {
+    font-size: 40px;
+    margin: 0;
+    padding: 20px;
+    color: var(--grey)
+}
+
+.add_btn {
+    font-size: 24px;
+    padding: 10px 20px;
+    color: white;
+    float: inline-end;
+    margin-right: 40px;
+    border-radius: 12px;
+    background-color: var(--orange);
+    text-decoration: none;
+}
+
+.create_page_container {
+    margin-top: 40px;
+    display: flex;
+    width: 100%;
+}
+
+.creation_menu {
+    margin: 0 40px;
+    width: 300px;
+    background-color: white;
+}
+
+.creation_menu > *,
+.creation_content > * {
+    display: block;
+}
+
+.creation_content {
+    width: 700px;
+    background-color: white;
+}
+
+.create_art_form form > div > * {
+    display: block;
+}
+
+#add_img_btn {
+    user-select: none;
+}
+
+.images_list input {
+    display: none;
 }

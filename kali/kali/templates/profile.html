@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div id="profile_header">
+    {% if user_settings.header %}
+        <img src="{% get_media_prefix %}{{user_settings.header}}" alt="user header">
+    {% else %}
+        <img src="/static/main/img/default_header.jpg" alt="user header">
+    {% endif %}
+</div>
+<br>
+<div id="profile_sideblock">
+    <div id="profile_description">
+        <div class="user_block">
+            <a id="user-avatar">
+                {% if user_settings.avatar %}
+                    <img src="{% get_media_prefix %}{{user_settings.avatar}}" alt="user avatar">
+                {% else %}
+                    <img src="/static/main/img/default_avatar.jpg" alt="user avatar">
+                {% endif %}
+            </a>
+            <p>{{user}}</p>
+        </div>
+        <p class="desc_title">Description</p>
+        <div class="description_text">
+            <span>{{user_settings.bio}}</span>
+        </div>
+    </div>
+    {% if request.user.id == user.id %}
+        <div class="settings_btn">
+            <span>
+                Settings
+            </span>
+        </div>
+    {% endif %}
+</div>
+<div id="profile_settings">
+    <div class="settings_header">
+        <div class="settings_close_btn">X</div>
+    </div>
+    <div class="profile_content">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %} 
+           {{ form.as_p }}  
+          <button type="submit">Upload</button>
+        </form>
+    </div>
+</div>
+<div id="profile_content">
+    <p class="profile_title">Arts</p>
+    <div class="profile_arts">
+        {% for art in user_arts %}
+            <div class="art">
+                <div class="art_image_container">
+                    <img class="art_image" src="{% get_media_prefix %}{{art.image}}" alt="Image not found">
+                </div>
+                <div class="art_info">
+                    <div class="author_avatar">
+                        <img src="{% static '/main/img/default_avatar.jpg' %}" alt="Image not found">
+                    </div>
+                    <div class="art_name_block">
+                        <div class="art_name">
+                            <span>{{art.name}}</span>
+                        </div>
+                        <div class="author_name">
+                            <span>{{art.author.username}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="profile_commissions">
+        <p class="profile_title">Commissions</p>
+    </div>
+</div>
+{% endblock %}

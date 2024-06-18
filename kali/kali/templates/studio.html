@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="studio_container">
+    <div class="studio_menu">
+        <input type="radio" name="menu_selector" id="menu_select_1" checked>
+        <label for="menu_select_1">
+            Notifications
+        </label>
+        <input type="radio" name="menu_selector" id="menu_select_2">
+        <label for="menu_select_2">
+            Gallery
+        </label>
+        <input type="radio" name="menu_selector" id="menu_select_3">
+        <label for="menu_select_3">
+            Commissions
+        </label>
+    </div>
+    <div class="studio_content">
+        <div class="notification">
+            <h1>Notifications</h1>
+    
+        </div>
+        <div class="gallery">
+            <h1>Gallery<a href="/create-art" class="add_btn">Создать</a></h1>
+            {% for art in arts %}
+                <div class="art">
+                    <div class="art_image_container">
+                        <img class="art_image" src="{% get_media_prefix %}{{art.image}}" alt="Image not found">
+                    </div>
+                    <div class="art_info">
+                        <div class="author_avatar">
+                            <img src="{% static '/main/img/default_avatar.jpg' %}" alt="Image not found">
+                        </div>
+                        <div class="art_name_block">
+                            <div class="art_name">
+                                <span>{{art.name}}</span>
+                            </div>
+                            <div class="author_name">
+                                <a href="/profile/{{art.author.id}}">{{art.author.username}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="studio_commissions">
+            <h1>Commissions<a class="add_btn" href="/create-commission">Создать</a></h1>
+            {% for commission in commissions %}
+                <div class="art">
+                    <div class="art_image_container">
+                        <img class="art_image" src="{% get_media_prefix %}{{commission.image}}" alt="Image not found">
+                    </div>
+                    <div class="art_info">
+                        <div class="author_avatar">
+                            <img src="{% static '/main/img/default_avatar.jpg' %}" alt="Image not found">
+                        </div>
+                        <div class="art_name_block">
+                            <div class="art_name">
+                                <span>{{commission.name}}</span>
+                            </div>
+                            <div class="author_name">
+                                <a href="/profile/{{ommission.author.id}}">{{ommission.author.usernam}}</a>
+                            </div>
+                        </div>
+                        <div class="cost">2000<span>&nbsp;р.</span></div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

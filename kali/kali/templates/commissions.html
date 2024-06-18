@@ -38,10 +38,10 @@
     </div>
 </sidemenu>
 <div class="art-list">
-    {% for art in arts %}
+    {% for commission in commissions %}
         <div class="art">
             <div class="art_image_container">
-                <img class="art_image" src="{% get_media_prefix %}{{art.image}}" alt="Image not found">
+                <img class="art_image" src="{% get_media_prefix %}{{commission.image}}" alt="Image not found">
             </div>
             <div class="art_info">
                 <div class="author_avatar">
@@ -49,14 +49,15 @@
                 </div>
                 <div class="art_name_block">
                     <div class="art_name">
-                        <span>{{art.name}}</span>
+                        <span>{{commission.name}}</span>
                     </div>
                     <div class="author_name">
-                        <a href="/profile/{{art.author.id}}">{{art.author.username}}</a>
+                        <a href="/profile/{{ommission.author.id}}">{{ommission.author.usernam}}</a>
                     </div>
                 </div>
+                <div class="cost">2000<span>&nbsp;р.</span></div>
             </div>
         </div>
     {% endfor %}
 </div>
-{% endblock %}
+{% endblock %}`
